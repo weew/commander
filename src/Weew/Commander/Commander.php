@@ -8,7 +8,7 @@ use Weew\Commander\Exceptions\UnsupportedCommandHandlerException;
 use Weew\Commander\Invokers\CallableHandlerInvoker;
 use Weew\Commander\Invokers\CommandHandlerInvoker;
 
-class Commander {
+class Commander implements ICommander {
     /**
      * @var ICommandHandlerInvoker[]
      */

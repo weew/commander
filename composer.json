@@ -18,7 +18,10 @@
             "Tests\\": "tests/"
         }
     },
-    "require": {},
+    "require": {
+        "weew/php-foundation": "^0.0.9",
+        "weew/php-helpers-string": "^0.0.10"
+    },
     "require-dev": {
         "phpunit/phpunit": "^4.7",
         "satooshi/php-coveralls": "^0.6.1"

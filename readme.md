@@ -22,11 +22,11 @@
 
 ## Introduction
 
-Commander is a simple message bus. It allows you to register command handlers and dispatch commands. The main reason to use such an abstraction is to decouple components and dependencies. The caller never knows who will handle a command after all. All he knows is a set of contracts that both sides have to fulfill.
+Commander is a simple message bus. It allows you to register command handlers and to dispatch commands. The main reason to use such an abstraction is to decouple components and dependencies. The caller never knows who will handle a command after all. All he knows is a set of contracts that both sides have to fulfill.
 
 ## Commands
 
-A command has no restrictions. You can use almost everything as a command. It is recommended to create simple transfer/value objects and use them as commands. Command is basically a contract between the caller and the handler.
+A command has no restrictions. You can use almost everything as a command. It is recommended to create simple transfer/value objects and use them as commands. A command is basically a contract between the caller and the handler.
 
 ## Registering command handlers
 

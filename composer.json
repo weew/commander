@@ -19,7 +19,6 @@
         }
     },
     "require": {
-        "weew/php-foundation": "^1.0.0",
         "weew/php-helpers-string": "^1.0.0"
     },
     "require-dev": {

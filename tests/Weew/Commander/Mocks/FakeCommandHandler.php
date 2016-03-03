@@ -2,9 +2,7 @@
 
 namespace Tests\Weew\Commander\Mocks;
 
-use Weew\Commander\ICommandHandler;
-
-class FakeCommandHandler implements ICommandHandler {
+class FakeCommandHandler {
     public function handle($command) {
         return 'foo ' . $command;
     }

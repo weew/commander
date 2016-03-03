@@ -30,12 +30,12 @@ A command has no restrictions. You can use almost everything as a command. It is
 
 ## Registering command handlers
 
-To be able to dispatch commands to handlers, commander has to know who is responsible for each command. That is why you have have to register a handler for each command. A handler can be a callable or an implementation of the `ICommandHandler` interface.
+To be able to dispatch commands to handlers, commander has to know who is responsible for each command. That is why you have have to register a handler for each command. A handler can be a callable or a class / instance that implements method `handle($command)`.
 
 First let's create a very basic command, a handler and a result.
 
 ```php
-class FooCommandHandler implements ICommandHandler {
+class FooCommandHandler {
     public function handle($command) {
         return new FooResult();
     }

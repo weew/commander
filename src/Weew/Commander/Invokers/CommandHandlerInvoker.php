@@ -3,7 +3,6 @@
 namespace Weew\Commander\Invokers;
 
 use Weew\Commander\Exceptions\InvalidCommandHandlerException;
-use Weew\Commander\ICommandHandler;
 use Weew\Commander\ICommandHandlerInvoker;
 use Weew\Commander\IDefinition;
 
@@ -45,29 +44,28 @@ class CommandHandlerInvoker implements ICommandHandlerInvoker {
             return $this->invokeHandler($handler, $command);
         }
 
-        throw new InvalidCommandHandlerException(
-            s('%s must implement interface %s to be a valid command handler.',
-                is_string($handler) ? $handler : get_type($handler),
-                ICommandHandler::class)
-        );
+        throw new InvalidCommandHandlerException(s(
+            'Handler "%s" must implement method "handle($command)".',
+            is_string($handler) ? $handler : get_type($handler)
+        ));
     }
 
     /**
      * @param $class
      *
-     * @return ICommandHandler
+     * @return mixed
      */
     protected function createHandler($class) {
         return new $class();
     }
 
     /**
-     * @param ICommandHandler $handler
+     * @param $handler
      * @param $command
      *
      * @return mixed
      */
-    protected function invokeHandler(ICommandHandler $handler, $command) {
+    protected function invokeHandler($handler, $command) {
         return $handler->handle($command);
     }
 
@@ -79,7 +77,7 @@ class CommandHandlerInvoker implements ICommandHandlerInvoker {
     protected function isValidHandlerClass($handler) {
         return is_string($handler) &&
             class_exists($handler) &&
-            in_array(ICommandHandler::class, class_implements($handler));
+            method_exists($handler, 'handle');
     }
 
     /**
@@ -88,6 +86,6 @@ class CommandHandlerInvoker implements ICommandHandlerInvoker {
      * @return bool
      */
     protected function isValidHandler($handler) {
-        return $handler instanceof ICommandHandler;
+        return is_object($handler) && method_exists($handler, 'handle');
     }
 }

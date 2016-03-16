@@ -39,9 +39,15 @@ class Commander implements ICommander {
      * @return $this
      */
     public function register($type, $handler) {
-        $this->addDefinition(
-            $this->createDefinition($type, $handler)
-        );
+        if ( ! is_array($type)) {
+            $type = [$type];
+        }
+
+        foreach ($type as $item) {
+            $this->addDefinition(
+                $this->createDefinition($item, $handler)
+            );
+        }
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace Tests\Weew\Commander;
 
 use PHPUnit_Framework_TestCase;
+use Tests\Weew\Commander\Mocks\AnotherFakeCommand;
 use Tests\Weew\Commander\Mocks\FakeCommand;
 use Tests\Weew\Commander\Mocks\FakeCommander;
 use Tests\Weew\Commander\Mocks\FakeCommandHandler;
@@ -28,6 +29,27 @@ class CommanderTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($cmndr === $commander);
         $this->assertEquals(1, count($commander->getDefinitions()));
         $definitions = $commander->getDefinitions();
+        $definition = array_pop($definitions);
+        $this->assertTrue($definition instanceof IDefinition);
+        $this->assertEquals(FakeCommand::class, $definition->getType());
+        $this->assertEquals(FakeCommandHandler::class, $definition->getHandler());
+    }
+
+    public function test_register_with_array() {
+        $commander = new FakeCommander();
+        $result = $commander->register([
+            FakeCommand::class,
+            AnotherFakeCommand::class
+        ], FakeCommandHandler::class);
+        $this->assertTrue($result === $commander);
+        $this->assertEquals(2, count($commander->getDefinitions()));
+        $definitions = $commander->getDefinitions();
+
+        $definition = array_pop($definitions);
+        $this->assertTrue($definition instanceof IDefinition);
+        $this->assertEquals(AnotherFakeCommand::class, $definition->getType());
+        $this->assertEquals(FakeCommandHandler::class, $definition->getHandler());
+
         $definition = array_pop($definitions);
         $this->assertTrue($definition instanceof IDefinition);
         $this->assertEquals(FakeCommand::class, $definition->getType());

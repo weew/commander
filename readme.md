@@ -1,11 +1,10 @@
 # Simple command bus
 
-[![Build Status](https://img.shields.io/travis/weew/php-commander.svg)](https://travis-ci.org/weew/php-commander)
-[![Code Quality](https://img.shields.io/scrutinizer/g/weew/php-commander.svg)](https://scrutinizer-ci.com/g/weew/php-commander)
-[![Test Coverage](https://img.shields.io/coveralls/weew/php-commander.svg)](https://coveralls.io/github/weew/php-commander)
-[![Dependencies](https://img.shields.io/versioneye/d/php/weew:php-commander.svg)](https://versioneye.com/php/weew:php-commander)
-[![Version](https://img.shields.io/packagist/v/weew/php-commander.svg)](https://packagist.org/packages/weew/php-commander)
-[![Licence](https://img.shields.io/packagist/l/weew/php-commander.svg)](https://packagist.org/packages/weew/php-commander)
+[![Build Status](https://img.shields.io/travis/weew/commander.svg)](https://travis-ci.org/weew/commander)
+[![Code Quality](https://img.shields.io/scrutinizer/g/weew/commander.svg)](https://scrutinizer-ci.com/g/weew/commander)
+[![Test Coverage](https://img.shields.io/coveralls/weew/commander.svg)](https://coveralls.io/github/weew/commander)
+[![Version](https://img.shields.io/packagist/v/weew/commander.svg)](https://packagist.org/packages/weew/commander)
+[![Licence](https://img.shields.io/packagist/l/weew/commander.svg)](https://packagist.org/packages/weew/commander)
 
 ## Table of contents
 
@@ -18,7 +17,7 @@
 
 ## Installation
 
-`composer require weew/php-commander`
+`composer require weew/commander`
 
 ## Introduction
 
@@ -64,4 +63,4 @@ $result = $commander->dispatch(new FooCommand('foo', 'bar'));
 
 ## Existing container integrations
 
-There is an integration available for the [weew/php-container](https://github.com/weew/php-container) container. See [weew/php-commander-container-aware](https://github.com/weew/php-commander-container-aware).
+There is an integration available for the [weew/container](https://github.com/weew/container) container. See [weew/commander-container-aware](https://github.com/weew/commander-container-aware).
